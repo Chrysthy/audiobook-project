@@ -10,49 +10,54 @@ let taTocando = false;
 let capitulo = 1;
 
 function tocarFaixa() {
-  audio.play();
-  taTocando = true;
-  botaoPlayPause.classList.add("tocando");
+    audio.play();
+    taTocando = true;
+    botaoPlayPause.classList.add("tocando");
 }
 
 function pausarFaixa() {
-  audio.pause();
-  taTocando = false;
-  botaoPlayPause.classList.remove("tocando");
+    audio.pause();
+    taTocando = false;
+    botaoPlayPause.classList.remove("tocando");
 }
 
 function tocarOuPausarFaixa() {
-  if (taTocando === true) {
-    pausarFaixa();
-  } else {
-    tocarFaixa();
-  }
+    if (taTocando === true) {
+        pausarFaixa();
+    } else {
+        tocarFaixa();
+    }
 }
 
 function capituloAnterior() {
-  pausarFaixa();
+    pausarFaixa();
 
-  if (capitulo === 1) {
-    capitulo = quantidadeCapitulos;
-  } else {
-    capitulo -= 1;
-  }
+    if (capitulo === 1) {
+        capitulo = quantidadeCapitulos;
+    } else {
+        capitulo -= 1;
+    }
 
-  audio.src = "/audios/" + capitulo + ".mp3";
-  nomeCapitulo.innerText = "Capítulo " + capitulo;
+    audio.src = "src/audio/" + capitulo + ".mp3";
+    nomeCapitulo.innerText = "Capítulo " + capitulo;
+
+    tocarFaixa();
 }
 
 function proximoCapitulo() {
-  pausarFaixa();
+    pausarFaixa();
 
-  if (capitulo < quantidadeCapitulos) {
-    capitulo += 1;
-  } else {
-    capitulo = 1;
-  }
+    if (capitulo < quantidadeCapitulos) {
+        capitulo += 1;
+    } else {
+        capitulo = 1;
+    }
 
-  audio.src = "/audios/" + capitulo + ".mp3";
-  nomeCapitulo.innerText = "Capítulo " + capitulo;
+ 
+    audio.src = "src/audio/" + capitulo + ".mp3";
+    nomeCapitulo.innerText = "Capítulo " + capitulo;
+    
+    tocarFaixa();
 }
 
 botaoPlayPause.addEventListener("click", tocarOuPausarFaixa);
