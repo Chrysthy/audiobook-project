@@ -2,7 +2,7 @@ body {
     font-family: "Montserrat", sans-serif;
     font-size: 1.2rem;
     background-image: linear-gradient(to bottom,
-            hsl(141deg 75% 15%),
+            hsl(320, 66%, 30%),
             hsl(141deg 75% 5%));
     min-height: 100vh;
     display: flex;
